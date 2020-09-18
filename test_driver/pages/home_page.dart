@@ -3,7 +3,7 @@ import 'package:flutter_driver/flutter_driver.dart';
 class HomePage {
   final txtCounter = find.byValueKey('counterText');
   final btnIncrement = find.byTooltip('Increment');
-  final btnAdd = find.byValueKey("add");
+  final btnAlert = find.byValueKey("alert");
   final btnSubtract = find.byValueKey("subtract");
   final txtAlert = find.byValueKey("alert_text");
   final btnClose = find.byValueKey("close_button");
@@ -26,4 +26,12 @@ class HomePage {
   Future<void> clickSubtractButton() async {
     return _driver.tap(btnSubtract);
   }
+
+  Future<void> clickAlertButton() async {
+    return _driver.tap(btnAlert);
+  }
+
+  Future<String> alertBoxPresent() async {
+    return await _driver.getText(txtAlert);
+}
 }
